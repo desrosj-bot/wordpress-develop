@@ -38,6 +38,8 @@ updates:
     open-pull-requests-limit: 50
     ignore:
       - dependency-name: "*"
+    allow:
+      - dependency-name: "@playwright/test"
     groups:
       ##
       # Groups for updating devDependencies.
