@@ -85,19 +85,19 @@ jobs:
           payload = {
               "iat": int(time.time()),
               "exp": int(time.time()) + 600,  # 10-minute expiration
-              "iss": "$APP_ID"
+              "iss": $APP_ID
           }
           print(jwt.encode(payload, private_key, algorithm="RS256"))
           EOF
           )
 
           # Get Installation ID
-          INSTALLATION_ID=$(curl -s -X GET -H "Authorization: Bearer \"$JWT\"" \
+          INSTALLATION_ID=$(curl -s -X GET -H "Authorization: Bearer $JWT" \
             -H "Accept: application/vnd.github.v3+json" \
             https://api.github.com/app/installations | jq -r '.[0].id')
 
           # Request Installation Access Token
-          ACCESS_TOKEN=$(curl -s -X POST -H "Authorization: Bearer \"$JWT\"" \
+          ACCESS_TOKEN=$(curl -s -X POST -H "Authorization: Bearer $JWT" \
             -H "Accept: application/vnd.github.v3+json" \
             https://api.github.com/app/installations/$INSTALLATION_ID/access_tokens | jq -r '.token')
 
@@ -165,7 +165,7 @@ jobs:
         run: |
           diff_output=$(git diff)
           if [ -n "$diff_output" ]; then
-            echo uncommitted_changes="$diff_output" >> "$GITHUB_OUTPUT"
+            echo "uncommitted_changes=$(echo $diff_output)" >> "$GITHUB_OUTPUT"
           fi
 
       - name: Stage changes
