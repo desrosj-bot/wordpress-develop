@@ -43,3 +43,6 @@ jobs:
     permissions:
       contents: write
     uses: ./.github/workflows/reusable-check-built-files.yml
+    secrets:
+      GH_APP_ID: ${{ secrets.GH_APP_ID }}
+      GH_APP_PRIVATE_KEY: ${{ secrets.GH_APP_PRIVATE_KEY }}

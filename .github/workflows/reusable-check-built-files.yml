@@ -1,6 +1,13 @@
 name: Lint GitHub Actions workflows
 on:
   workflow_call:
+    secrets:
+      GH_APP_ID:
+        description: 'A GitHub App ID.'
+        required: true
+      GH_APP_PRIVATE_KEY:
+        description: 'A GitHub App private key.'
+        required: true
 
 permissions: {}
 
