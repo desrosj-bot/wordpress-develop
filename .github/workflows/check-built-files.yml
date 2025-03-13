@@ -2,7 +2,6 @@
 name: Check built files
 
 on:
-  push:
   # Because all commits happen through SVN and should always be manually reviewed by a committer, this workflow only
   # runs for pull requests.
   #
