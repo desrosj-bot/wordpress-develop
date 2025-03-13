@@ -167,6 +167,9 @@ jobs:
             echo "uncommitted_changes=true" >> "$GITHUB_OUTPUT"
           fi
 
+      - name: Display changes to versioned files
+        run: git diff
+
       - name: Stage changes
         if: ${{ steps.built-file-check.outputs.uncommitted_changes == 'true' }}
         run: git add .
