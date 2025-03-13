@@ -41,5 +41,5 @@ jobs:
   update-built-files:
     name: Update built files
     permissions:
-      pull-requests: write
+      contents: write
     uses: ./.github/workflows/reusable-check-built-files.yml
