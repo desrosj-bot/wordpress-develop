@@ -39,7 +39,7 @@ jobs:
     runs-on: ubuntu-24.04
     permissions:
       contents: write
-      pull-request: write
+      pull-requests: write
     # This prevents a second run after changes are committed back because Dependabot always rebases updates onto trunk.
     if: ${{ github.actor != 'dependabot[bot]' || github.event.commits < 2 }}
     steps:
