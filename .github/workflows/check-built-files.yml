@@ -44,6 +44,7 @@ jobs:
     name: Update built files
     permissions:
       contents: write
+      pull-requests: write
     uses: ./.github/workflows/reusable-check-built-files.yml
     secrets:
       GH_APP_ID: ${{ secrets.GH_APP_ID }}
