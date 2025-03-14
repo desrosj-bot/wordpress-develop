@@ -2,6 +2,7 @@
 name: Check built files
 
 on:
+  push:
   # Because all commits happen through SVN and should always be manually reviewed by a committer, this workflow only
   # runs for pull requests.
   #
@@ -43,6 +44,7 @@ jobs:
     name: Update built files
     permissions:
       contents: write
+      pull-requests: write
     uses: ./.github/workflows/reusable-check-built-files.yml
     secrets:
       GH_APP_ID: ${{ secrets.GH_APP_ID }}
